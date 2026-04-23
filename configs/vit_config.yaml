@@ -1,0 +1,48 @@
+# configs/vit_config.yaml
+
+# --- Data Parameters ---
+data_params:
+  dataset: 'CIFAR10'
+  root_dir: './data/cifar10'
+  img_size: 224
+  in_channels: 3
+  num_classes: 10
+  class_names: 
+    - 'plane'
+    - 'car'
+    - 'bird'
+    - 'cat'
+    - 'deer'
+    - 'dog'
+    - 'frog'
+    - 'horse'
+    - 'ship'
+    - 'truck'
+  mean: [0.4914, 0.4822, 0.4465]
+  std: [0.2470, 0.2435, 0.2616]
+
+# --- Model Parameters ---
+model_params:
+  patch_size: 16
+  d_model: 512
+  num_layers: 6
+  n_heads: 8
+  d_ff: 2048
+  dropout: 0.1
+
+# --- Training Parameters ---
+training_params:
+  device: 'cuda'
+  num_epochs: 100
+  batch_size: 256
+  learning_rate: 0.0003
+  weight_decay: 0.05
+  eval_interval: 5
+  model_save_path: './checkpoints/vit_cifar10.pth'
+  num_workers: 4
+  scheduler_T_max: 100
+
+# --- Prediction Parameters ---
+prediction_params:
+  # 修改为你自己的测试图片路径
+  image_source: "./data/test_images/cat.jpg"
