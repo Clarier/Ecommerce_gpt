@@ -1,4 +1,4 @@
 #!/bin/bash
 python main.py \
-    --task generate_text \
+    --task train_llm \
     --config configs/llm_config.yaml
