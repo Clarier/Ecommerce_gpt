@@ -1,0 +1,33 @@
+# configs/llm_config.yaml
+
+# --- Data Parameters ---
+data_params:
+  data_dir: "data"
+  dataset_url: "https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt"
+  dataset_path: "./data/tinyshakespeare/input.txt"
+  block_size: 256
+
+# --- Model Parameters ---
+model_params:
+  vocab_size: 65
+  d_model: 384
+  num_layers: 6
+  n_heads: 6
+  d_ff: 1536
+  dropout: 0.1
+
+# --- Training Parameters ---
+training_params:
+  batch_size: 64
+  learning_rate: 0.0003
+  weight_decay: 0.01
+  num_epochs: 30
+  device: "cuda"
+  num_workers: 4
+  model_save_path: "checkpoints/llm_tinyshakespeare.pth"
+  eval_interval: 1
+
+# --- Generation Parameters ---
+generation_params:
+  start_context: "You are all resolved"
+  max_new_tokens: 500
